@@ -1,0 +1,8 @@
+.vercel
+site/node_modules
+site/.next
+site/out
+node_modules
+.DS_Store
+.netlify
+.ipynb_checkpoints/
