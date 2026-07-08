@@ -8,6 +8,15 @@ export default function Footer() {
         <span>📈 Data Analyst Bootcamp — From Zero to Hero</span>
         <div className="flex items-center gap-4">
           <a
+            href="https://dataprojectlab.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors"
+            style={{ color: "var(--sky-100)" }}
+          >
+            DataProjectLab ↗
+          </a>
+          <a
             href="https://diakite-data.github.io/data-engineering-bootcamp"
             target="_blank"
             rel="noopener noreferrer"

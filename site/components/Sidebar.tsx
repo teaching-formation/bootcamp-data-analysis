@@ -141,7 +141,15 @@ export default function Sidebar({ modules, currentSlug }: { modules: Module[]; c
       </nav>
 
       {/* Footer sidebar */}
-      <div className="px-5 py-4 border-t text-xs" style={{ borderColor: "var(--border)", color: "var(--text-faint)" }}>
+      <div className="px-5 py-4 border-t text-xs flex flex-col gap-1.5" style={{ borderColor: "var(--border)", color: "var(--text-faint)" }}>
+        <a
+          href="https://dataprojectlab.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors"
+        >
+          ↗ DataProjectLab
+        </a>
         <a
           href="https://diakite-data.github.io/data-engineering-bootcamp"
           target="_blank"

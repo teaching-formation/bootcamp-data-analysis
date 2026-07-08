@@ -42,6 +42,15 @@ export default function Header() {
         >
           Bootcamp DE ↗
         </a>
+        <a
+          href="https://dataprojectlab.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-3 py-1.5 rounded-md text-xs font-medium"
+          style={{ color: "rgba(255, 255, 255, 0.9)" }}
+        >
+          DataProjectLab ↗
+        </a>
         <span style={{ color: "rgba(255, 255, 255, 0.3)", margin: "0 6px" }}>|</span>
         <ThemeToggle />
       </nav>
