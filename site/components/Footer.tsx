@@ -17,7 +17,7 @@ export default function Footer() {
             DataProjectLab ↗
           </a>
           <a
-            href="https://diakite-data.github.io/data-engineering-bootcamp"
+            href="https://dataeng.from0tohero.dev/"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors"

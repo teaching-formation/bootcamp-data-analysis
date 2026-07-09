@@ -34,7 +34,7 @@ export default function Header() {
           Programme
         </a>
         <a
-          href="https://diakite-data.github.io/data-engineering-bootcamp"
+          href="https://dataeng.from0tohero.dev/"
           target="_blank"
           rel="noopener noreferrer"
           className="px-3 py-1.5 rounded-md text-xs font-medium"
