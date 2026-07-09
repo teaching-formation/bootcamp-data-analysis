@@ -4,6 +4,19 @@ export interface TocItem {
   level: number;
 }
 
+const HTML_ENTITIES: Record<string, string> = {
+  "&amp;": "&",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&quot;": '"',
+  "&#39;": "'",
+  "&apos;": "'",
+};
+
+function decodeHtmlEntities(text: string): string {
+  return text.replace(/&(amp|lt|gt|quot|#39|apos);/g, (m) => HTML_ENTITIES[m] ?? m);
+}
+
 export function extractToc(html: string): TocItem[] {
   const items: TocItem[] = [];
   const regex = /<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h[23]>/gi;
@@ -11,7 +24,7 @@ export function extractToc(html: string): TocItem[] {
   while ((match = regex.exec(html)) !== null) {
     const level = parseInt(match[1]);
     const id = match[2];
-    const text = match[3].replace(/<[^>]+>/g, "").trim();
+    const text = decodeHtmlEntities(match[3].replace(/<[^>]+>/g, "").trim());
     if (text) items.push({ id, text, level });
   }
   return items;
