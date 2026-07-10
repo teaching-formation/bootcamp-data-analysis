@@ -62,7 +62,7 @@ export default function Home() {
             Data Analyst
           </h1>
           <p className="hero-sub text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Devenez Data Analyst opérationnel, prêt pour le marché africain.
+            Devenez Data Analyst opérationnel, prêt pour le marché du travail.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link
