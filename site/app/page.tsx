@@ -47,24 +47,21 @@ export default function Home() {
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-geist-sans), system-ui, sans-serif", background: "var(--bg)" }}>
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="hero-banner relative py-20 px-6 overflow-hidden">
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <span className="text-2xl">📈</span>
-            <span className="text-base font-bold tracking-wide" style={{ color: "#ffffff", textShadow: "0 2px 4px rgba(0,0,0,0.15)" }}>
-              Data Analyst Bootcamp
-            </span>
-          </div>
-          <div className="flex justify-center mb-8">
-            <div style={{ width: "220px", height: "3px", background: "rgba(255,255,255,0.6)", borderRadius: "2px" }} />
+      <section className="hero-banner">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <p className="hero-kicker justify-center">
+            <span>📈</span> Bootcamp · From Zero to Hero
+          </p>
+          <div className="flex justify-center">
+            <div className="hero-divider" />
           </div>
           <h1
-            className="hero-title font-black leading-none mb-6"
+            className="hero-title font-black mb-5"
             style={{ fontSize: "clamp(2.8rem, 8vw, 5rem)" }}
           >
-            From Zero to Hero
+            Data Analyst
           </h1>
-          <p className="text-lg mb-10 max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.95)" }}>
+          <p className="hero-sub text-lg mb-10 max-w-xl mx-auto leading-relaxed">
             Devenez Data Analyst opérationnel, prêt pour le marché africain.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">

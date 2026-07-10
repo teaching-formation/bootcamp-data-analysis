@@ -38,8 +38,11 @@
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--orange-500) 0%, var(--sky-500) 100%);
-  /* Hero : orange-700 → sky-700 pour garder ≥4.5:1 avec du texte blanc */
-  --gradient-hero: linear-gradient(135deg, #c2410c 0%, var(--sky-700) 100%);
+  /* Hero : 4 arrêts orange → sky, tous individuellement ≥4.5:1 avec du texte blanc/crème
+     (le bootcamp DE utilise orange-600/sky-600 en bords, qui descendent à ~3.2-4.1:1 —
+     on garde la même diagonale mais avec des teintes plus soutenues pour rester AA) */
+  --gradient-hero: linear-gradient(100deg, #c2410c 0%, #9a3412 24%, #075985 68%, #0369a1 100%);
+  --gradient-hero-dark: linear-gradient(100deg, #9a3412 0%, #7c2d12 22%, #0c4a6e 70%, #075985 100%);
   /* CTA : orange-700 → orange-800, texte blanc AA */
   --gradient-orange: linear-gradient(135deg, var(--orange-700) 0%, #9a3412 100%);
 
@@ -229,74 +232,77 @@ a:focus-visible { text-decoration: underline; }
   .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
 
-/* ── Hero animé (orange → sky) ─────────────────────────────── */
+/* ── Hero (aligné sur le bootcamp Data Engineering) ────────── */
 .hero-banner {
   position: relative;
+  text-align: center;
+  color: #fff;
   background: var(--gradient-hero);
+  padding: 92px 24px 100px;
   overflow: hidden;
 }
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background:
-    radial-gradient(circle at 20% 80%, rgba(251, 146, 60, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.2) 0%, transparent 40%);
-  animation: heroFloat 20s ease-in-out infinite;
-  pointer-events: none;
+html[data-theme="dark"] .hero-banner {
+  background: var(--gradient-hero-dark);
 }
 .hero-banner::after {
   content: "";
+  pointer-events: none;
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  pointer-events: none;
+    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 0),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 0);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(#000 35%, transparent 82%);
+  mask-image: radial-gradient(#000 35%, transparent 82%);
 }
-@keyframes heroFloat {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  25% { transform: translate(2%, 2%) rotate(5deg); }
-  50% { transform: translate(-1%, 3%) rotate(-3deg); }
-  75% { transform: translate(3%, -2%) rotate(3deg); }
+.hero-kicker {
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.hero-divider {
+  background: rgba(255, 255, 255, 0.4);
+  width: 300px;
+  max-width: 55%;
+  height: 1px;
+  margin: 0 auto 26px;
 }
 .hero-title {
-  background: linear-gradient(135deg, #ffffff 0%, #fff7ed 50%, #e0f2fe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: titleGlow 3s ease-in-out infinite alternate;
+  color: #fdf1e3;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
 }
-@keyframes titleGlow {
-  from { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
-  to   { filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5)); }
+.hero-sub {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* ── Boutons ───────────────────────────────────────────────── */
 .btn-cta {
-  background: var(--gradient-orange);
+  background: var(--orange-600);
   color: white;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-xl), var(--shadow-orange);
+  background: var(--orange-700);
+  transform: translateY(-2px);
 }
 .btn-hero-outline {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.32);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-hero-outline:hover {
-  background: rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
+  background: rgba(15, 23, 42, 0.5);
+  transform: translateY(-1px);
 }
 
 /* ── Sidebar links ─────────────────────────────────────────── */
