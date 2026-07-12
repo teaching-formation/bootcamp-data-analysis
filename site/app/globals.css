@@ -420,22 +420,9 @@ html[data-toc-collapsed="1"] .toc-nav {
   line-height: 1.8;
   max-width: none;
 }
-/* Le TEXTE reste dans une largeur de lecture confortable (~800px)… */
-.prose-notebook > p,
-.prose-notebook > ul,
-.prose-notebook > ol,
-.prose-notebook > h1,
-.prose-notebook > h2,
-.prose-notebook > h3,
-.prose-notebook > h4,
-.prose-notebook > blockquote,
-.prose-notebook > hr,
-.prose-notebook > details > p,
-.prose-notebook > details > ul,
-.prose-notebook > details > ol {
-  max-width: 800px;
-}
-/* …mais les TABLEAUX et le CODE exploitent toute la largeur disponible */
+/* Tout le contenu (texte, tableaux, code) suit la largeur de la colonne.
+   La lisibilité reste bornée par la largeur max du conteneur .module-content
+   (1360px, ou 1600px quand le sommaire est masqué). */
 .prose-notebook .table-wrapper,
 .prose-notebook pre {
   max-width: 100%;
