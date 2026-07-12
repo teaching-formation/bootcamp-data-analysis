@@ -44,7 +44,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
 
         {/* Top bar */}
         <header
-          className="sticky top-14 z-10 flex items-center justify-between px-4 sm:px-6 py-3 text-xs border-b"
+          className="module-topbar sticky top-14 z-10 flex items-center justify-between px-4 sm:px-6 py-3 text-xs border-b"
           style={{ background: "var(--bg-alt)", borderColor: "var(--border)" }}
         >
           {/* Breadcrumb */}
@@ -61,13 +61,13 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
           {/* Meta */}
           <div className="flex items-center gap-2 sm:gap-4" style={{ color: "var(--text-faint)" }}>
             <a
-              href={`/notebooks/${module.slug}.ipynb`}
+              href={`/pdf/${module.slug}.pdf`}
               download
-              title="Télécharger le cours (notebook Jupyter .ipynb)"
+              title="Télécharger le cours en PDF"
               className="inline-flex items-center gap-1 font-medium px-2.5 py-1 rounded transition-colors whitespace-nowrap"
               style={{ background: "var(--accent-bg)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
             >
-              ⬇<span className="hidden sm:inline"> Télécharger</span> .ipynb
+              ⬇<span className="hidden sm:inline"> Télécharger</span> PDF
             </a>
             {module.duration && <span className="hidden sm:inline whitespace-nowrap">⏱ {module.duration}</span>}
             <span
@@ -91,7 +91,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
             <CopyButtons />
 
             {/* Prev / Next */}
-            <div className="mt-12 pt-6 flex justify-between gap-4" style={{ borderTop: "1px solid var(--border)" }}>
+            <div className="module-nav mt-12 pt-6 flex justify-between gap-4" style={{ borderTop: "1px solid var(--border)" }}>
               {prev ? (
                 <a
                   href={`/modules/${prev.slug}/`}

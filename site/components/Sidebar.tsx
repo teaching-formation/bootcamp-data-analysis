@@ -65,7 +65,7 @@ export default function Sidebar({ modules, currentSlug }: { modules: Module[]; c
       <button
         onClick={() => setMobileOpen((v) => !v)}
         aria-label={mobileOpen ? "Fermer le sommaire" : "Ouvrir le sommaire des modules"}
-        className="lg:hidden fixed bottom-5 left-5 z-[60] flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform active:scale-95"
+        className="no-print lg:hidden fixed bottom-5 left-5 z-[60] flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform active:scale-95"
         style={{ background: "var(--accent)", color: "#fff", boxShadow: "0 6px 20px rgba(0,0,0,0.28)" }}
       >
         <span aria-hidden="true">{mobileOpen ? "✕" : "☰"}</span>

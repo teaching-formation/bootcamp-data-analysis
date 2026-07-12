@@ -29,7 +29,7 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
   if (items.length < 2) return null;
 
   return (
-    <nav className="hidden xl:block shrink-0" style={{ width: "200px" }}>
+    <nav className="toc-nav hidden xl:block shrink-0" style={{ width: "200px" }}>
       <div className="sticky" style={{ top: "112px" }}>
         <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--text-faint)" }}>
           Sur cette page

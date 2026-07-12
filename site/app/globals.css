@@ -639,3 +639,54 @@ hr.cell-separator {
   }
   html { scroll-behavior: auto; }
 }
+
+/* ── Impression / génération PDF ────────────────────────────── */
+@media print {
+  /* On masque toute l'interface : ne reste que le contenu du cours */
+  .site-header,
+  .module-sidebar,
+  .module-topbar,
+  .module-nav,
+  .toc-nav,
+  .copy-btn,
+  .back-to-top,
+  .reading-progress,
+  .no-print,
+  footer {
+    display: none !important;
+  }
+
+  body { background: #ffffff !important; }
+  .prose-notebook { max-width: none !important; }
+
+  /* Toutes les corrections repliées sont dépliées dans le PDF */
+  .prose-notebook details > *:not(summary) { display: block !important; }
+  .prose-notebook details { break-inside: avoid; }
+
+  /* Les longues lignes de code s'enroulent au lieu d'être coupées par la page */
+  .prose-notebook pre,
+  .prose-notebook pre code {
+    white-space: pre-wrap !important;
+    word-break: break-word;
+  }
+
+  /* Les tableaux tiennent dans la largeur de la page */
+  .prose-notebook .table-wrapper { overflow: visible !important; }
+  .prose-notebook table { width: 100% !important; font-size: 0.7rem; }
+  .prose-notebook td,
+  .prose-notebook th { word-break: break-word; }
+
+  /* Éviter les coupures disgracieuses */
+  .prose-notebook pre,
+  .prose-notebook table,
+  .prose-notebook blockquote,
+  .prose-notebook li,
+  .prose-notebook img { break-inside: avoid; }
+  .prose-notebook h1,
+  .prose-notebook h2,
+  .prose-notebook h3,
+  .prose-notebook h4 { break-after: avoid; }
+
+  /* Conserver les fonds (blocs de code sombres, en-têtes de tableaux) */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+}
