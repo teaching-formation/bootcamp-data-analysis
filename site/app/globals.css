@@ -465,12 +465,65 @@ hr.cell-separator {
 .code-lang {
   position: absolute;
   top: 0.4rem;
-  right: 0.75rem;
+  left: 0.9rem;            /* déplacé à gauche : le coin droit est réservé au bouton Copier */
   font-size: 0.62rem;
   font-family: var(--font-geist-mono), monospace;
   color: var(--code-comment);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+}
+
+/* ── Boutons « Copier » sur les blocs de code et les tableaux ──────── */
+.code-block-wrapper,
+.table-block-wrapper {
+  position: relative;
+}
+.table-block-wrapper {
+  padding-top: 2rem;        /* réserve la place du bouton au-dessus du tableau */
+}
+.copy-btn {
+  position: absolute;
+  z-index: 3;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.28rem 0.65rem;
+  border-radius: 7px;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  background: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  opacity: 0.75;
+  transition: opacity 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+.table-block-wrapper .copy-btn {
+  top: 0.15rem;
+  right: 0.25rem;
+}
+.code-block-wrapper:hover .copy-btn,
+.table-block-wrapper:hover .copy-btn,
+.copy-btn:focus-visible {
+  opacity: 1;
+}
+.copy-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.copy-btn.copied {
+  background: #16a34a;
+  color: #ffffff;
+  border-color: transparent;
+  opacity: 1;
+}
+/* Sur écran tactile (pas de survol), on garde le bouton bien visible */
+@media (hover: none) {
+  .copy-btn { opacity: 0.9; }
 }
 
 /* Tables — header sky solide (style DE) */

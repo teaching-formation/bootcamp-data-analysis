@@ -5,6 +5,7 @@ import { renderMarkdown } from "@/lib/render";
 import { addHeadingIds, extractToc } from "@/lib/toc";
 import Sidebar from "@/components/Sidebar";
 import TableOfContents from "@/components/TableOfContents";
+import CopyButtons from "@/components/CopyButtons";
 
 export async function generateStaticParams() {
   return getAllModules().map((m) => ({ slug: m.slug }));
@@ -78,6 +79,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
               className="prose-notebook"
               dangerouslySetInnerHTML={{ __html: html }}
             />
+            <CopyButtons />
 
             {/* Prev / Next */}
             <div className="mt-12 pt-6 flex justify-between gap-4" style={{ borderTop: "1px solid var(--border)" }}>
