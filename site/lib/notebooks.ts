@@ -38,6 +38,7 @@ const ACTES: Record<string, string> = {
   acte4_stats_r_python: "Acte IV — R & Python",
   projet_niveau_debutant: "Projet Final — Niveau Débutant",
   modules: "Modules — Niveau Intermédiaire",
+  projet_niveau_intermediaire: "Projet Final — Niveau Intermédiaire",
 };
 
 function extractTitle(nbPath: string): string {

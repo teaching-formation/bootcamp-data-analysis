@@ -11,6 +11,7 @@ const ACTE_ICONS: Record<string, string> = {
   acte4_stats_r_python: "🐍",
   projet_niveau_debutant: "🏆",
   modules: "📚",
+  projet_niveau_intermediaire: "🏆",
 };
 
 const NIVEAU_BADGES: Record<string, string> = {
@@ -27,6 +28,7 @@ function groupByActe(modules: Module[]) {
     acte4_stats_r_python: "Acte IV",
     projet_niveau_debutant: "Projet Final",
     modules: "Modules",
+    projet_niveau_intermediaire: "Projet Final",
   };
   for (const m of modules) {
     if (!groups[m.acte])

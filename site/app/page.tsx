@@ -29,6 +29,7 @@ const ACTE_ICONS: Record<string, string> = {
   acte4_stats_r_python: "🐍",
   projet_niveau_debutant: "🏆",
   modules: "📚",
+  projet_niveau_intermediaire: "🏆",
 };
 
 const TOOLS = [
