@@ -605,6 +605,19 @@ hr.cell-separator {
   .copy-btn { opacity: 0.9; }
 }
 
+/* Images / graphes d'illustration */
+.prose-notebook img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0.75rem 0 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
 /* Tables — header sky solide (style DE) */
 .prose-notebook table {
   width: max-content;
