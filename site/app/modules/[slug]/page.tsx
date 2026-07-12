@@ -73,7 +73,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
         </header>
 
         {/* Content + ToC */}
-        <div className="flex flex-1 gap-8 px-4 sm:px-8 pt-6 sm:pt-8 pb-24 lg:pb-8 max-w-6xl">
+        <div className="flex flex-1 gap-8 px-4 sm:px-8 pt-6 sm:pt-8 pb-24 lg:pb-8 w-full max-w-6xl mx-auto">
 
           {/* Article */}
           <article className="flex-1 min-w-0">
