@@ -5,6 +5,7 @@ import { TocItem } from "@/lib/toc";
 
 export default function TableOfContents({ items }: { items: TocItem[] }) {
   const [active, setActive] = useState<string>("");
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     const ids = items.map((i) => i.id);
@@ -26,33 +27,76 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
     return () => observer.disconnect();
   }, [items]);
 
+  // Restaure l'état "masqué" et le reflète sur <html> pour élargir le contenu
+  useEffect(() => {
+    let saved = false;
+    try {
+      saved = localStorage.getItem("da-toc-collapsed") === "1";
+    } catch {}
+    setCollapsed(saved);
+    document.documentElement.setAttribute("data-toc-collapsed", saved ? "1" : "0");
+  }, []);
+
+  const toggle = () => {
+    setCollapsed((v) => {
+      const next = !v;
+      try {
+        localStorage.setItem("da-toc-collapsed", next ? "1" : "0");
+      } catch {}
+      document.documentElement.setAttribute("data-toc-collapsed", next ? "1" : "0");
+      return next;
+    });
+  };
+
   if (items.length < 2) return null;
 
   return (
-    <nav className="toc-nav hidden xl:block shrink-0" style={{ width: "200px" }}>
-      <div className="sticky" style={{ top: "112px" }}>
-        <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "var(--text-faint)" }}>
-          Sur cette page
-        </p>
-        <ul className="space-y-1">
-          {items.map((item) => (
-            <li key={item.id} style={{ paddingLeft: item.level === 3 ? "0.75rem" : "0" }}>
-              <a
-                href={`#${item.id}`}
-                className="block text-xs leading-snug py-0.5 transition-colors truncate"
-                style={{
-                  color: active === item.id ? "var(--accent)" : "var(--text-faint)",
-                  fontWeight: active === item.id ? 600 : 400,
-                  borderLeft: active === item.id ? "2px solid var(--accent)" : "2px solid transparent",
-                  paddingLeft: "0.5rem",
-                }}
-              >
-                {item.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
+    <>
+      {/* Onglet de ré-ouverture quand le sommaire est masqué (desktop xl) */}
+      <button
+        onClick={toggle}
+        aria-label="Afficher le sommaire"
+        title="Afficher le sommaire"
+        className={`toc-reopen no-print ${collapsed ? "show" : ""}`}
+      >
+        «
+      </button>
+
+      <nav className="toc-nav hidden xl:block shrink-0" style={{ width: "200px" }}>
+        <div className="sticky" style={{ top: "112px" }}>
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--text-faint)" }}>
+              Sur cette page
+            </p>
+            <button
+              onClick={toggle}
+              aria-label="Masquer le sommaire"
+              title="Masquer le sommaire"
+              className="toc-collapse-btn"
+            >
+              »
+            </button>
+          </div>
+          <ul className="space-y-1">
+            {items.map((item) => (
+              <li key={item.id} style={{ paddingLeft: item.level === 3 ? "0.75rem" : "0" }}>
+                <a
+                  href={`#${item.id}`}
+                  className="block text-xs leading-snug py-0.5 transition-colors truncate"
+                  style={{
+                    color: active === item.id ? "var(--accent)" : "var(--text-faint)",
+                    fontWeight: active === item.id ? 600 : 400,
+                    borderLeft: active === item.id ? "2px solid var(--accent)" : "2px solid transparent",
+                    paddingLeft: "0.5rem",
+                  }}
+                >
+                  {item.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }
