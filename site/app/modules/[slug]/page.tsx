@@ -43,7 +43,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
 
         {/* Top bar */}
         <header
-          className="sticky top-14 z-10 flex items-center justify-between px-6 py-3 text-xs border-b"
+          className="sticky top-14 z-10 flex items-center justify-between px-4 sm:px-6 py-3 text-xs border-b"
           style={{ background: "var(--bg-alt)", borderColor: "var(--border)" }}
         >
           {/* Breadcrumb */}
@@ -70,7 +70,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
         </header>
 
         {/* Content + ToC */}
-        <div className="flex flex-1 gap-8 px-8 py-8 max-w-6xl">
+        <div className="flex flex-1 gap-8 px-4 sm:px-8 pt-6 sm:pt-8 pb-24 lg:pb-8 max-w-6xl">
 
           {/* Article */}
           <article className="flex-1 min-w-0">

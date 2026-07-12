@@ -305,6 +305,25 @@ html[data-theme="dark"] .hero-banner {
   transform: translateY(-1px);
 }
 
+/* ── Sidebar module : tiroir sur mobile, colonne fixe sur desktop ── */
+/* Sur mobile/tablette (< lg) le composant gère le tiroir en inline-style
+   (position fixed + translateX). À partir de lg on repasse en colonne
+   statique dans le flux — le !important neutralise le transform inline. */
+@media (min-width: 1024px) {
+  .module-sidebar {
+    position: sticky !important;
+    top: 56px !important;
+    left: auto !important;
+    width: 260px !important;
+    max-width: none !important;
+    height: calc(100vh - 56px) !important;
+    transform: none !important;
+    box-shadow: none !important;
+    z-index: auto !important;
+    flex-shrink: 0;
+  }
+}
+
 /* ── Sidebar links ─────────────────────────────────────────── */
 .sidebar-link {
   transition: background 150ms, color 150ms, transform 150ms;

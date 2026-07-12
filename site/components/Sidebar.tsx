@@ -57,18 +57,47 @@ export default function Sidebar({ modules, currentSlug }: { modules: Module[]; c
     return init;
   });
 
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   return (
-    <aside
-      className="flex flex-col shrink-0 overflow-y-auto"
-      style={{
-        width: "260px",
-        background: "var(--bg-alt)",
-        borderRight: "1px solid var(--border)",
-        position: "sticky",
-        top: "56px",
-        height: "calc(100vh - 56px)",
-      }}
-    >
+    <>
+      {/* Bouton flottant (mobile/tablette) pour ouvrir le sommaire */}
+      <button
+        onClick={() => setMobileOpen((v) => !v)}
+        aria-label={mobileOpen ? "Fermer le sommaire" : "Ouvrir le sommaire des modules"}
+        className="lg:hidden fixed bottom-5 left-5 z-[60] flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold transition-transform active:scale-95"
+        style={{ background: "var(--accent)", color: "#fff", boxShadow: "0 6px 20px rgba(0,0,0,0.28)" }}
+      >
+        <span aria-hidden="true">{mobileOpen ? "✕" : "☰"}</span>
+        <span>{mobileOpen ? "Fermer" : "Sommaire"}</span>
+      </button>
+
+      {/* Fond semi-transparent quand le tiroir est ouvert (mobile) */}
+      {mobileOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-40"
+          style={{ background: "rgba(0,0,0,0.45)" }}
+          onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      <aside
+        className="module-sidebar flex flex-col overflow-y-auto"
+        style={{
+          position: "fixed",
+          top: "56px",
+          left: 0,
+          zIndex: 50,
+          width: "280px",
+          maxWidth: "85vw",
+          height: "calc(100vh - 56px)",
+          transform: mobileOpen ? "translateX(0)" : "translateX(-100%)",
+          background: "var(--bg-alt)",
+          borderRight: "1px solid var(--border)",
+          boxShadow: mobileOpen ? "0 0 50px rgba(0,0,0,0.35)" : "none",
+        }}
+      >
       {/* Badge niveau */}
       <div className="px-5 py-3 border-b" style={{ borderColor: "var(--border)" }}>
         <span
@@ -162,5 +191,6 @@ export default function Sidebar({ modules, currentSlug }: { modules: Module[]; c
         </a>
       </div>
     </aside>
+    </>
   );
 }

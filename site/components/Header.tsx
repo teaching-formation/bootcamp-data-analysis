@@ -21,14 +21,14 @@ export default function Header() {
       <nav className="flex items-center gap-1">
         <a
           href="/"
-          className="px-3 py-1.5 rounded-md text-xs font-medium"
+          className="hidden sm:inline-block px-3 py-1.5 rounded-md text-xs font-medium"
           style={{ color: "rgba(255, 255, 255, 0.9)" }}
         >
           Accueil
         </a>
         <a
           href="/#programme"
-          className="px-3 py-1.5 rounded-md text-xs font-medium"
+          className="hidden md:inline-block px-3 py-1.5 rounded-md text-xs font-medium"
           style={{ color: "rgba(255, 255, 255, 0.9)" }}
         >
           Programme
@@ -37,7 +37,7 @@ export default function Header() {
           href="https://dataeng.from0tohero.dev/"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-3 py-1.5 rounded-md text-xs font-medium"
+          className="hidden lg:inline-block px-3 py-1.5 rounded-md text-xs font-medium"
           style={{ color: "rgba(255, 255, 255, 0.9)" }}
         >
           Bootcamp DE ↗
@@ -46,12 +46,12 @@ export default function Header() {
           href="https://dataprojectlab.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-3 py-1.5 rounded-md text-xs font-medium"
+          className="hidden lg:inline-block px-3 py-1.5 rounded-md text-xs font-medium"
           style={{ color: "rgba(255, 255, 255, 0.9)" }}
         >
           DataProjectLab ↗
         </a>
-        <span style={{ color: "rgba(255, 255, 255, 0.3)", margin: "0 6px" }}>|</span>
+        <span className="hidden sm:inline" style={{ color: "rgba(255, 255, 255, 0.3)", margin: "0 6px" }}>|</span>
         <ThemeToggle />
       </nav>
     </header>
