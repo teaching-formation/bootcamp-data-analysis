@@ -6,6 +6,7 @@ import { addHeadingIds, extractToc } from "@/lib/toc";
 import Sidebar from "@/components/Sidebar";
 import TableOfContents from "@/components/TableOfContents";
 import CopyButtons from "@/components/CopyButtons";
+import PrintButton from "@/components/PrintButton";
 
 export async function generateStaticParams() {
   return getAllModules().map((m) => ({ slug: m.slug }));
@@ -60,15 +61,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
 
           {/* Meta */}
           <div className="flex items-center gap-2 sm:gap-4" style={{ color: "var(--text-faint)" }}>
-            <a
-              href={`/pdf/${module.slug}.pdf`}
-              download
-              title="Télécharger le cours en PDF"
-              className="inline-flex items-center gap-1 font-medium px-2.5 py-1 rounded transition-colors whitespace-nowrap"
-              style={{ background: "var(--accent-bg)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
-            >
-              ⬇<span className="hidden sm:inline"> Télécharger</span> PDF
-            </a>
+            <PrintButton />
             {module.duration && <span className="hidden sm:inline whitespace-nowrap">⏱ {module.duration}</span>}
             <span
               className="font-mono text-xs px-2 py-0.5 rounded"

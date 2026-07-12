@@ -640,7 +640,10 @@ hr.cell-separator {
   html { scroll-behavior: auto; }
 }
 
-/* ── Impression / génération PDF ────────────────────────────── */
+/* ── Impression / enregistrement en PDF (depuis le navigateur) ── */
+@page {
+  margin: 12mm 12mm 14mm 12mm;
+}
 @media print {
   /* On masque toute l'interface : ne reste que le contenu du cours */
   .site-header,
