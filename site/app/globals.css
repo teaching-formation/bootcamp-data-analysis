@@ -322,6 +322,34 @@ html[data-theme="dark"] .hero-banner {
     z-index: auto !important;
     flex-shrink: 0;
   }
+  /* « Réduire le menu » : masque la colonne sur desktop */
+  .module-sidebar.is-collapsed {
+    display: none !important;
+  }
+}
+
+/* Bouton de ré-ouverture du menu réduit (desktop uniquement) */
+.sidebar-reopen {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  z-index: 45;
+  align-items: center;
+  gap: 4px;
+  padding: 0.4rem 0.7rem 0.4rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.sidebar-reopen .reopen-label { letter-spacing: 0.04em; }
+@media (min-width: 1024px) {
+  .sidebar-reopen.show { display: inline-flex; }
 }
 
 /* ── Sidebar links ─────────────────────────────────────────── */
