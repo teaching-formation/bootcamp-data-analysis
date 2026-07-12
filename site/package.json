@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/prepare-downloads.mjs && next dev",
+    "prebuild": "node scripts/prepare-downloads.mjs",
     "build": "next build --webpack",
     "start": "next start"
   },

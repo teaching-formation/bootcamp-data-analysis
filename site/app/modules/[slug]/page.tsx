@@ -59,8 +59,17 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
           </nav>
 
           {/* Meta */}
-          <div className="flex items-center gap-4" style={{ color: "var(--text-faint)" }}>
-            {module.duration && <span>⏱ {module.duration}</span>}
+          <div className="flex items-center gap-2 sm:gap-4" style={{ color: "var(--text-faint)" }}>
+            <a
+              href={`/notebooks/${module.slug}.ipynb`}
+              download
+              title="Télécharger le cours (notebook Jupyter .ipynb)"
+              className="inline-flex items-center gap-1 font-medium px-2.5 py-1 rounded transition-colors whitespace-nowrap"
+              style={{ background: "var(--accent-bg)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
+            >
+              ⬇<span className="hidden sm:inline"> Télécharger</span> .ipynb
+            </a>
+            {module.duration && <span className="hidden sm:inline whitespace-nowrap">⏱ {module.duration}</span>}
             <span
               className="font-mono text-xs px-2 py-0.5 rounded"
               style={{ background: "var(--accent-bg)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
