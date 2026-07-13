@@ -274,7 +274,16 @@ export default function Sidebar({ modules, currentSlug }: { modules: Module[]; c
         </nav>
 
         {/* Footer sidebar */}
-        <div className="px-5 py-4 border-t text-xs flex flex-col gap-1.5" style={{ borderColor: "var(--border)", color: "var(--text-faint)" }}>
+        <div className="px-5 py-4 border-t text-xs flex flex-col gap-2" style={{ borderColor: "var(--border)", color: "var(--text-faint)" }}>
+          <a
+            href="https://t.me/fromzerotoherodataeng"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md font-semibold mb-1 transition-colors"
+            style={{ background: "var(--accent-bg)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
+          >
+            💬 Une question ? Groupe Telegram
+          </a>
           <a href="https://dataprojectlab.com" target="_blank" rel="noopener noreferrer" className="transition-colors">
             ↗ DataProjectLab
           </a>

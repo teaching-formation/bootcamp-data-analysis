@@ -6,7 +6,16 @@ export default function Footer() {
         style={{ color: "rgba(255,255,255,0.9)" }}
       >
         <span>📈 Data Analyst Bootcamp — From Zero to Hero</span>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap justify-center">
+          <a
+            href="https://t.me/fromzerotoherodataeng"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold transition-colors"
+            style={{ color: "#ffffff" }}
+          >
+            💬 Une question ? Groupe Telegram ↗
+          </a>
           <a
             href="https://dataprojectlab.com"
             target="_blank"
